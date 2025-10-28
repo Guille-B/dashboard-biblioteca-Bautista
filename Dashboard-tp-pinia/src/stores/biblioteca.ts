@@ -1,14 +1,14 @@
 import type { Libro } from "@/models/libro";
 import { defineStore } from "pinia";
 
-interface librosState {
-    isLoading:boolean
-    data: Libro[]
-    error: string | null
+interface LibrosState {
+    isLoading:boolean,
+    data: Libro[],
+    error: string | null,
 }
 
 export const useBibliotecaStore = defineStore('libros', {
-    state: (): librosState => ({
+    state: (): LibrosState => ({
         isLoading:true,
         data:[],
         error: null
@@ -52,20 +52,17 @@ export const useBibliotecaStore = defineStore('libros', {
     },
 
     getters: {
-        sortedByTitle(libro: Libro[]) {
-            [...libro].sort((a ,b)=> a.titulo.localeCompare(b.titulo))
+        sortedByTitle: (state): Libro[] => {
+           return [...state.data].sort((a ,b)=> a.titulo.localeCompare(b.titulo))
         },
 
-        sortedByAutor(libros:Libro[]) {
-            [...libros].sort((a,b)=> a.autor.localeCompare(b.autor))
+        sortedByAutor: (state) => {
+           return [...state.data].sort((a,b)=> a.autor.localeCompare(b.autor))
         },
 
-        sortedByPageNumber(libross:Libro[]) {
-            [...libross].sort((a,b)=> a.paginas - b.paginas)
+        sortedByPageNumber:(state) => {
+            return[...state.data].sort((a,b)=> a.paginas - b.paginas)
         }
-
-
-
     },
 
     

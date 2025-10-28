@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import type { Libro } from '../models/libro.ts';
-import { useBibliotecaStore } from '@/stores/biblioteca.ts';
+import { useBibliotecaStore } from '../stores/biblioteca.js';
 
 const store = useBibliotecaStore();
 
@@ -46,13 +46,13 @@ const submit = () => {
         
         <div 
           v-if="successMessage" 
-          class="m-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded-lg"
+          class="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg"
         >
           {{ successMessage }}
         </div>
         <div 
           v-if="store.error" 
-          class="m-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg"
+          class=" p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg"
         >
           {{ store.error }}
         </div>
@@ -94,13 +94,11 @@ const submit = () => {
             />
           </div>
 
-          <div class="flex items-center p-3 bg-gray-50 rounded">
+          <div class="flex items-center  bg-gray-50 rounded">
             <input type="checkbox" id="disponible"v-model="form.disponible"
               class="w-4 h-4 text-purple-600 border-gray-300 rounded"
             />
-            <label for="disponible" class="ml-2 text-sm font-medium text-gray-700">
-              Libro disponible para préstamo
-            </label>
+            <span class="text-gray">Esta disponible?</span>
           </div>
 
           <!-- Botones -->
@@ -121,7 +119,7 @@ const submit = () => {
           </div>
 
 
-
+          
         </form>
 
 
