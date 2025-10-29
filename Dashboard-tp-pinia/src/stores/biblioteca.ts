@@ -40,7 +40,7 @@ export const useBibliotecaStore = defineStore('libros', {
         updateEstado(titulo:string) {
            const libro = this.data.find((l)=> l.titulo === titulo)
             if(!libro) {
-                this.error = `No se encontro el libro con el titulo ${titulo}`
+                this.error = `No se encontro el libro`
                 return
             }
 
@@ -56,11 +56,11 @@ export const useBibliotecaStore = defineStore('libros', {
            return [...state.data].sort((a ,b)=> a.titulo.localeCompare(b.titulo))
         },
 
-        sortedByAutor: (state) => {
+        sortedByAutor: (state): Libro[] => {
            return [...state.data].sort((a,b)=> a.autor.localeCompare(b.autor))
         },
 
-        sortedByPageNumber:(state) => {
+        sortedByPageNumber:(state): Libro[] => {
             return[...state.data].sort((a,b)=> a.paginas - b.paginas)
         }
     },

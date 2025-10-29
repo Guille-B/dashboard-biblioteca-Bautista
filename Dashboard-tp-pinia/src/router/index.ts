@@ -9,8 +9,9 @@ const router = createRouter({
     {
       path: '/', component: DashboardPage, children:[
         {path: 'libros', component:LibroList, children:[
-          {path: 'nuevo', component:LibroForm}
+          {path: '/libro/nuevo', component:LibroForm},
         ]},
+        
       ]
     }
   ],

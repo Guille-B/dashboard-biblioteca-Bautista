@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import LibroForm from './pages/LibroForm.vue'
+
 </script>
 <template>
-  <LibroForm/>
+  <RouterView/>
 </template>
 
 <style scoped></style>
